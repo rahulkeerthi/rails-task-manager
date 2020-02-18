@@ -1,0 +1,17 @@
+<p>
+  <strong>Completed? </strong>
+  <%= check_box_tag 'completed', 'completed', checked = @task.completed , disabled: true %>
+</p>
+
+<p>
+  <strong>Title: </strong>
+  <%= @task.title %>
+</p>
+<p>
+  <strong>Details: </strong>
+  <%= @task.details %>
+</p>
+
+
+<p><%= link_to 'Edit', edit_task_path(@task) %></p>
+<p><%= link_to 'Back', tasks_path %></p>

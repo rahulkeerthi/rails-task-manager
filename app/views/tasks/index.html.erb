@@ -1,0 +1,27 @@
+<h1>Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Completed</th>
+      <th>Title</th>
+      <th>Details</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= check_box_tag 'completed?', 'completed', checked = task.completed , disabled: true %></td>
+        <td><%= link_to task.title, task %></td>
+        <td><%= task.details %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'X' , task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Task', new_task_path %>
