@@ -11,8 +11,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :completed %>
-    <%= form.check_box :completed %>
+    <% if task.persisted? %>
+      <%= form.label :completed %>
+      <%= form.check_box :completed %>
+    <% else %>
+      <%= %>
+    <% end %>
   </div>
 
   <div class="actions">
